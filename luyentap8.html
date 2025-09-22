@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đoán số</title>
+</head>
+<body>
+<button onclick="playGame()">Chơi</button>
+
+<script>
+    function playGame() {
+        // Bước 1: Người dùng nhập khoảng đoán
+        let min = Number(prompt("Nhập số nhỏ nhất của khoảng đoán:"));
+        let max = Number(prompt("Nhập số lớn nhất của khoảng đoán:"));
+
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            alert("Khoảng nhập không hợp lệ! Vui lòng thử lại.");
+            return;
+        }
+
+        // Bước 2: Sinh số ngẫu nhiên
+        let secret = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // Bước 3: Cho phép người chơi đoán tối đa 3 lần
+        let attempts = 0;
+        let guessed = false;
+
+        while (attempts < 3 && !guessed) {
+            let guess = parseInt(prompt("Đoán một số trong khoảng " + min + " đến " + max + ":"));
+            attempts++;
+
+            if (isNaN(guess)) {
+                alert("Vui lòng nhập một số hợp lệ!");
+                attempts--; // không tính lượt đoán nếu nhập không hợp lệ
+                continue;
+            }
+
+            if (guess === secret) {
+                alert("Chúc mừng! Bạn đoán đúng số " + secret + " sau " + attempts + " lần!");
+                guessed = true;
+            } else if (guess < secret) {
+                alert("Số bạn đoán quá nhỏ!");
+            } else {
+                alert("Số bạn đoán quá lớn!");
+            }
+        }
+
+        if (!guessed) {
+            alert("Bạn đã hết 3 lần đoán! Số bí mật là: " + secret);
+        }
+    }
+</script>
+</body>
+</html>
