@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sout = "";
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= i; j++) {
+            sout += "*";
+        }
+        sout += '<br>';
+    }
+
+    for (let i = 5; 1 <= i; i--) {
+        for (let j = 1; j <= i; j++) {
+            sout += '*';
+        }
+        sout += '<br>';
+    }
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <=5 - i; j++) {
+            sout += '&nbsp;&nbsp;';
+        }
+        for (let j = 1; j <= i; j++) {
+            sout += '*';
+        }
+        sout += '<br>';
+    }
+    for (let i = 5; 1 <= i; i--) {
+        for (let j = 1; j <=5 - i; j++) {
+            sout += '&nbsp;&nbsp;';
+        }
+        for (let j = 1; j <= i; j++) {
+            sout += '*';
+        }
+        sout += '<br>';
+    }
+    document.write(sout);
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let f1 = 0, f2 = 1;
+    let n = 20;
+    for (let i = 1; i <= n; i++) {
+        document.write(f1 + '<br>');
+        let count = f1 + f2;
+        f1 = f2;
+        f2 = count;
+    }
+</script>
+</body>
+</html>
