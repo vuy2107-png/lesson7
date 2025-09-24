@@ -6,15 +6,19 @@
 </head>
 <body>
 <script>
-    let numbers = Number(prompt("Nhập số lượng số nguyên cần in:", 20));
+    let numbers = parseInt(prompt("Nhập số lượng số nguyên cần in:", 20));
     let count = 0;
     let N = 2;
     function isPrime(n) {
-        if (n < 2) return false;
-        for (let i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i === 0) return false;
+        if (n < 2) {   // nhỏ hơn 2 thì không phải số nguyên tố
+            return false;
         }
-        return true;
+        for (let i = 2; i < n; i++) {   // duyệt từ 2 đến n-1
+            if (n % i === 0) {          // nếu chia hết thì không phải số nguyên tố
+                return false;
+            }
+        }
+        return true;  // nếu không chia hết cho ai thì là số nguyên tố
     }
     while (count < numbers) {
         if (isPrime(N)){
